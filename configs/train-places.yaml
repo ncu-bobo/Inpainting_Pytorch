@@ -1,0 +1,61 @@
+# 重新训练
+model_restore: ''
+#model_restore: 'checkpoints/celebahq/model_exp0/states.pth'
+
+# 数据加载
+dataset_path: 'C:/data/place2_train/data_large'
+# 是否按子文件夹放置
+scan_subdirs: True
+# 当数据集为'celebahq'时，设置为False; 当数据集为'place2'时，设置为True
+random_crop: True
+random_horizontal_flip: False
+batch_size: 16
+num_workers: 0
+
+# 训练
+# 是否开启Tensorboard日志记录
+tb_logging: True
+log_dir: 'tb_logs/place2/model_exp0'
+checkpoint_dir: 'checkpoints/place2/model_exp0'
+
+use_cuda_if_available: True
+random_seed: False
+
+# 生成器参数，使用Adam优化器
+g_lr: 0.0001
+g_beta1: 0.5
+g_beta2: 0.999
+
+# 鉴别器参数
+d_lr: 0.0001
+d_beta1: 0.5
+d_beta2: 0.999
+
+# 迭代次数
+max_iters: 1000000
+
+# logging
+viz_max_out: 10
+print_iter: 100
+save_checkpoint_iter: 100
+save_imgs_to_tb_iter: 500
+save_imgs_to_disc_iter: 500
+save_cp_backup_iter: 5000
+
+# 图像尺寸
+img_shapes: [256, 256, 3]
+
+# mask
+height: 128
+width: 128
+max_delta_height: 32
+max_delta_width: 32
+vertical_margin: 0
+horizontal_margin: 0
+
+# loss函数
+gan_loss: 'hinge'
+gan_loss_alpha: 1.
+
+ae_loss: True
+l1_loss_alpha: 1.
