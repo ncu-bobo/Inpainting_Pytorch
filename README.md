@@ -33,7 +33,7 @@ New models can be added in `app/models.yaml`
 
 
 ## Requirements
-  + python3
+  + python3.6
   + pytorch
   + torchvision
   + numpy
